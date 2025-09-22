@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yang Shen | Personal Site</title>
+  <meta name="description" content="Yang Shen 的个人主页与项目作品集" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+  <style>
+    :root{
+      --bg: #ffffff; --fg:#0f172a; --muted:#475569; --brand:#2563eb; --card:#f8fafc; --ring:#e2e8f0;
+      --shadow: 0 10px 25px rgba(2,6,23,.06);
+    }
+    .dark{
+      --bg:#0b1220; --fg:#e5e7eb; --muted:#9aa4b2; --brand:#60a5fa; --card:#0f172a; --ring:#1f2937;
+      --shadow: 0 10px 25px rgba(0,0,0,.35);
+    }
+    html,body{height:100%}
+    body{
+      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Helvetica Neue, Arial, "Microsoft Yahei", sans-serif;
+      background:var(--bg); color:var(--fg); transition:background .2s,color .2s;
+    }
+    .container{max-width:1040px; margin:0 auto; padding:24px}
+    header{
+      position:sticky; top:0; backdrop-filter: blur(8px);
+      background: color-mix(in srgb, var(--bg) 92%, transparent);
+      border-bottom:1px solid var(--ring); z-index:10;
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
+    .nav a{color:var(--muted); text-decoration:none; padding:10px 12px; border-radius:10px}
+    .nav a.active,.nav a:hover{color:var(--fg); background:var(--card)}
+    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--ring);
+      border-radius:999px; text-decoration:none; color:var(--fg); background:var(--bg);}
+    .btn:hover{background:var(--card)}
+    .brand{color:var(--brand); font-weight:700}
+    .hero{display:grid; grid-template-columns:1fr; gap:28px; padding:56px 0 12px}
+    .hero h1{font-size:clamp(28px,4.2vw,44px); line-height:1.15; margin:0 0 12px}
+    .muted{color:var(--muted)}
+    .avatar{
+      width:112px; height:112px; border-radius:24px; border:1px solid var(--ring); background:var(--card);
+      display:grid; place-items:center; font-size:56px; box-shadow:var(--shadow)
+    }
+    .grid{display:grid; gap:18px}
+    @media (min-width: 820px){
+      .hero{grid-template-columns:1.2fr .8fr; align-items:center}
+      .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+      .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    }
+    .card{
+      background:var(--card); border:1px solid var(--ring); border-radius:18px; padding:18px; box-shadow:var(--shadow);
+    }
+    .card h3{margin:0 0 8px; font-size:18px}
+    .tag{display:inline-block; font-size:12px; color:var(--muted); border:1px solid var(--ring); padding:4px 8px; border-radius:999px; margin-right:6px}
+    .section{padding:28px 0}
+    footer{padding:32px 0 40px; color:var(--muted); border-top:1px solid var(--ring); text-align:center}
+    .social{display:flex; gap:10px; flex-wrap:wrap}
+    .social a{border:1px solid var(--ring); padding:8px 12px; border-radius:12px; text-decoration:none; color:var(--fg)}
+    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--card); border:1px solid var(--ring); padding:2px 6px; border-radius:6px}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav">
+      <div><a href="#top" class="brand">yangshen2024.com</a></div>
+      <nav style="display:flex; gap:6px; flex-wrap:wrap">
+        <a href="#about" class="en">About Me</a>
+        <a href="#projects" class="en">Projects</a>
+        <a href="#contact" class="en">Contact</a>
+        <a href="#about" class="zh">关于我</a>
+        <a href="#projects" class="zh">项目</a>
+        <a href="#contact" class="zh">联系</a>
+        <button id="mode" class="btn" aria-label="Toggle color mode">🌗 主题</button>
+        <button id="lang" class="btn" aria-label="Switch language">🇨🇳/🇬🇧</button>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div>
+        <div class="muted">Hi, I'm</div>
+        <h1>Yang Shen <span class="brand">（申阳）</span></h1>
+        <p class="muted" id="desc">
+          我是新加坡管理大学（SMU）的 MITB 项目 AI 专业的在读学生，目前专注于研究 Agent 的实际落地，结合企业业务提升效率。我的研究方向涵盖 NLP、LLM、AML 等领域，致力于将前沿技术应用于实际业务。我乐于与志同道合的伙伴分享想法，欢迎与我交流，探讨更多有趣的课题。
+        </p>
+        <p class="muted" id="desc-en">
+          I am a current student of the MITB program at Singapore Management University (SMU), specializing in AI. My research focuses on deploying agents to improve efficiency within business contexts. I am skilled in NLP, LLM, and AML, with a strong interest in applying cutting-edge technologies to real-world challenges. I’m open to exchanging ideas with like-minded individuals and exploring innovative solutions together.
+        </p>
+        <div class="social" style="margin-top:14px">
+          <a href="https://github.com/yangshen2024" target="_blank" rel="noopener">GitHub</a>
+          <a href="mailto:shenyang0528@gmail.com">Email</a>
+          <a href="https://yangshen2024.github.io" target="_blank" rel="noopener">Blog</a>
+          <a href="https://www.linkedin.com/in/shenyang2024/" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </div>
+      <div style="justify-self:center">
+        <div class="avatar" title="更换为你的头像">🧠</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section">
+      <h2>关于我 / About Me</h2>
+      <div class="card">
+        <p id="about-text">
+          目前在做 <b>数据产品与模型应用</b>，擅长 Python、SQL、Tableau。对 LLM 应用、检索增强和轻量级自动化很感兴趣。
+          最近在尝试把 GitHub Pages + 自定义域名用于个人知识库与简历展示（你现在看到的就是 😄）。
+        </p>
+        <p class="muted">技能栈 / Skills: Python（pandas / scikit-learn）· SQL · Git · Prompt Engineering · 可视化</p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section">
+      <h2>代表项目 / Projects</h2>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>Crossfunding Project</h3>
+          <p class="muted">企业融资与风险评估的优化项目，结合机器学习方法提升投资回报率与风险预警。</p>
+          <div style="margin:8px 0 10px">
+            <span class="tag">Python</span><span class="tag">ML</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/crossfunding" target="_blank" rel="noopener">查看仓库 →</a>
+        </article>
+        <article class="card">
+          <h3>Ticket MCP Project</h3>
+          <p class="muted">多渠道数据分析平台，提升客服效率与运营分析能力。</p>
+          <div style="margin:8px 0 10px">
+            <span class="tag">Python</span><span class="tag">Data Science</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/ticket-mcp" target="_blank" rel="noopener">查看仓库 →</a>
+        </article>
+        <article class="card">
+          <h3>Property Price Forecasting</h3>
+          <p class="muted">基于房地产市场数据的价格预测，关联税务和犯罪率进行分析。</p>
+          <div style="margin:8px 0 10px">
+            <span class="tag">ML</span><span class="tag">Real Estate</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/property-price-forecasting" target="_blank" rel="noopener">查看仓库 →</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section">
+      <h2>联系我 / Contact Me</h2>
+      <div class="card">
+        <p>邮箱：<a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a></p>
+        <p class="muted">小提示：按 <span class="kbd">G</span> 然后 <span class="kbd">H</span> 快速前往我的 GitHub 主页。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">© <span id="y"></span> Yang Shen · Built with GitHub Pages</div>
+  </footer>
+
+  <script>
+    const links = document.querySelectorAll('header nav a[href^="#"]');
+    links.forEach(a=>{
+      a.addEventListener('click', e=>{
+        e.preventDefault();
+        document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth', block:'start'});
+      });
+    });
+
+    const io = new IntersectionObserver(entries=>{
+      entries.forEach(e=>{
+        const id = e.target.getAttribute('id');
+        const l = document.querySelector(`a[href="#${id}"]`);
+        if(l) l.classList.toggle('active', e.isIntersecting);
+      });
+    }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
+    document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
+
+    const btn = document.getElementById('mode');
+    const apply = v => document.documentElement.classList.toggle('dark', v === 'dark');
+    const pref = localStorage.getItem('mode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
+    apply(pref);
+    btn.addEventListener('click', ()=>{
+      const v = document.documentElement.classList.contains('dark') ? 'light':'dark';
+      localStorage.setItem('mode', v); apply(v);
+    });
+
+    const langBtn = document.getElementById('lang');
+    const toggleLang = () => {
+      const isChinese = document.documentElement.lang === "zh-CN";
+      document.documentElement.lang = isChinese ? "en" : "zh-CN";
+      document.querySelectorAll(".zh").forEach(el => el.style.display = isChinese ? 'block' : 'none');
+      document.querySelectorAll(".en").forEach(el => el.style.display = isChinese ? 'none' : 'block');
+      langBtn.textContent = isChinese ? "🇬🇧" : "🇨🇳";
+    };
+    langBtn.addEventListener('click', toggleLang);
+
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
