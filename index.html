@@ -1,12 +1,584 @@
-</html>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN" data-language="zh" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0; url=/my_introduction.html">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Yang Shen | AI Researcher & Data Scientist</title>
+  <meta name="description" content="Yang Shen - SMU MITB AI专业学生，专注于Agent实际落地与企业业务效率提升。NLP、LLM、AML研究方向。" />
+  <meta name="keywords" content="Yang Shen, AI, Machine Learning, NLP, LLM, Data Science, SMU, Agent, 沈阳" />
+  <meta name="author" content="Yang Shen" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yangshen2024.github.io/" />
+  <meta property="og:title" content="Yang Shen | AI Researcher & Data Scientist" />
+  <meta property="og:description" content="SMU MITB AI专业学生，专注于Agent实际落地与企业业务效率提升" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yangshen2024.github.io/" />
+  <meta property="twitter:title" content="Yang Shen | AI Researcher & Data Scientist" />
+  <meta property="twitter:description" content="SMU MITB AI专业学生，专注于Agent实际落地与企业业务效率提升" />
+  
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+  <link rel="canonical" href="https://yangshen2024.github.io/" />
+  <style>
+    :root{
+      --bg:#fff8d6;
+      --bg-pattern:#fee500;
+      --fg:#1f1f1f;
+      --muted:#5c5c66;
+      --brand:#f9c400;
+      --accent:#3b82f6;
+      --card:rgba(255,255,255,0.95);
+      --ring:rgba(255,196,0,0.35);
+      --shadow:0 12px 30px rgba(255,210,75,0.35);
+      --shadow-lg:0 22px 45px rgba(255,173,96,0.45);
+      --surface:rgba(255,255,255,0.85);
+      --gradient:linear-gradient(135deg,#ffd54f 0%,#ff8a65 100%);
+    }
+    .dark{
+      --bg:#05070f;
+      --bg-pattern:#0b1220;
+      --fg:#f8fbff;
+      --muted:#94a3b8;
+      --brand:#facc15;
+      --accent:#7dd3fc;
+      --card:rgba(15,23,42,0.9);
+      --ring:rgba(255,255,255,0.25);
+      --shadow:0 15px 30px rgba(0,0,0,0.5);
+      --shadow-lg:0 30px 60px rgba(0,0,0,0.65);
+      --surface:rgba(15,23,42,0.85);
+      --gradient:linear-gradient(135deg,#4f46e5 0%,#7c3aed 100%);
+    }
+    .glass{
+      --bg:rgba(12,19,31,0.4);
+      --bg-pattern:rgba(12,19,31,0.65);
+      --fg:#f5f7fb;
+      --muted:rgba(245,247,251,0.75);
+      --brand:#a5b4fc;
+      --accent:#67e8f9;
+      --card:rgba(15,23,42,0.35);
+      --ring:rgba(255,255,255,0.3);
+      --shadow:0 25px 60px rgba(15,23,42,0.55);
+      --shadow-lg:0 35px 80px rgba(15,23,42,0.75);
+      --surface:rgba(15,23,42,0.35);
+      --gradient:linear-gradient(135deg,rgba(59,130,246,0.85) 0%,rgba(14,165,233,0.95) 100%);
+    }
+
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      font:16px/1.65 system-ui,-apple-system,'Segoe UI',Roboto,PingFang SC,Hiragino Sans GB,Noto Sans CJK SC,Helvetica Neue,Arial,"Microsoft Yahei",sans-serif;
+      background:var(--bg);
+      color:var(--fg);
+      transition:background .4s ease,color .4s ease;
+      min-height:100vh;
+      position:relative;
+      overflow-x:hidden;
+    }
+    body::before{
+      content:"";
+      position:fixed;
+      inset:0;
+      background:
+        radial-gradient(circle at 12% 20%,rgba(255,255,255,0.55),transparent 45%),
+        radial-gradient(circle at 82% 5%,rgba(255,255,255,0.4),transparent 40%),
+        repeating-linear-gradient(45deg,rgba(0,0,0,0.03) 0 6px,transparent 6px 12px),
+        var(--bg-pattern);
+      background-color:var(--bg-pattern);
+      z-index:-2;
+    }
+    body::after{
+      content:"";
+      position:fixed;
+      width:320px;
+      height:320px;
+      right:-60px;
+      bottom:-80px;
+      background:var(--gradient);
+      opacity:.45;
+      filter:blur(60px);
+      border-radius:50%;
+      z-index:-1;
+    }
+
+    .container{max-width:1200px;margin:0 auto;padding:0 24px;}
+
+    header{
+      position:sticky;top:0;
+      backdrop-filter:blur(14px);
+      -webkit-backdrop-filter:blur(14px);
+      background:var(--surface);
+      border-bottom:1px solid var(--ring);
+      z-index:100;
+      transition:background .4s ease,border .3s ease;
+    }
+    .nav{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:16px;padding:18px 0;flex-wrap:wrap;
+    }
+    .brand{
+      font-weight:800;font-size:20px;text-decoration:none;
+      background:var(--gradient);-webkit-background-clip:text;
+      background-clip:text;-webkit-text-fill-color:transparent;
+      letter-spacing:.02em;
+    }
+    .brand-note{
+      font-size:12px;color:var(--muted);display:block;margin-top:2px;
+    }
+    .nav-links{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .nav-link{
+      color:var(--muted);text-decoration:none;padding:8px 16px;border-radius:14px;
+      transition:all .2s ease;font-weight:500;
+    }
+    .nav-link.active,.nav-link:hover{color:var(--fg);background:var(--card);box-shadow:var(--shadow);}
+
+    .control-group{display:flex;gap:10px;flex-wrap:wrap;align-items:center;}
+    .btn{
+      display:inline-flex;align-items:center;gap:8px;padding:10px 16px;
+      border:1px solid var(--ring);border-radius:14px;text-decoration:none;
+      color:var(--fg);background:rgba(255,255,255,0.35);
+      backdrop-filter:blur(6px);
+      font-weight:600;cursor:pointer;transition:all .25s ease;font-size:14px;
+    }
+    .btn:hover{transform:translateY(-2px);box-shadow:var(--shadow);background:var(--card);}
+    .glass .btn{background:rgba(255,255,255,0.12);}    
+    .label{font-size:14px;}
+
+    .hero{
+      display:grid;grid-template-columns:1fr;gap:40px;
+      padding:90px 0 70px;min-height:70vh;align-items:center;
+    }
+    .hero h1{
+      font-size:clamp(34px,5vw,56px);line-height:1.05;margin:0 0 18px;
+      font-weight:900;background:var(--gradient);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .hero-subtitle{font-size:20px;color:var(--muted);margin-bottom:18px;font-weight:500;}
+    .avatar{
+      width:160px;height:160px;border-radius:32px;border:2px solid var(--ring);
+      background:var(--card);display:grid;place-items:center;font-size:70px;
+      box-shadow:var(--shadow-lg);position:relative;overflow:hidden;transition:transform .4s ease;
+    }
+    .avatar::after{
+      content:"";position:absolute;inset:0;background:var(--gradient);
+      opacity:.25;mix-blend-mode:screen;
+    }
+    .avatar:hover{transform:scale(1.05) rotate(3deg);}
+
+    .pill-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;}
+    .pill{
+      padding:6px 14px;border-radius:999px;border:1px solid var(--ring);
+      background:rgba(255,255,255,0.6);font-size:13px;font-weight:600;color:var(--fg);
+      box-shadow:var(--shadow);
+    }
+
+    .grid{display:grid;gap:24px;}
+    .grid.cols-3{grid-template-columns:repeat(auto-fit,minmax(240px,1fr));}
+
+    .card{
+      background:var(--card);border:1px solid var(--ring);border-radius:22px;
+      padding:26px;box-shadow:var(--shadow);transition:transform .3s ease,box-shadow .3s ease;
+      position:relative;overflow:hidden;
+    }
+    .card::after{
+      content:"";position:absolute;right:-60px;top:-60px;width:160px;height:160px;
+      background:var(--gradient);opacity:.18;filter:blur(30px);
+    }
+    .card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+    .card h3{margin:0 0 14px;font-size:20px;font-weight:700;}
+
+    .tag{display:inline-block;font-size:12px;color:var(--muted);
+      border:1px solid var(--ring);padding:6px 12px;border-radius:20px;
+      margin:4px 8px 4px 0;background:rgba(255,255,255,0.6);font-weight:600;
+    }
+
+    .section{padding:70px 0;}
+    .section h2{
+      font-size:32px;margin-bottom:42px;text-align:center;font-weight:800;
+      letter-spacing:.02em;background:var(--gradient);
+      -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+    }
+    .section-cta{
+      display:flex;justify-content:center;align-items:center;gap:12px;margin-bottom:28px;flex-wrap:wrap;
+    }
+    .section-cta a{
+      border:1px solid var(--ring);padding:10px 18px;border-radius:14px;text-decoration:none;
+      font-weight:600;color:var(--fg);background:rgba(255,255,255,0.65);transition:all .2s ease;
+      box-shadow:var(--shadow);
+    }
+    .section-cta a:hover{background:var(--gradient);color:#fff;transform:translateY(-2px);}
+
+    .social{display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;}
+    .social a{
+      border:1px solid var(--ring);padding:12px 20px;border-radius:14px;
+      text-decoration:none;color:var(--fg);font-weight:600;transition:all .2s ease;
+      background:rgba(255,255,255,0.65);
+    }
+    .social a:hover{background:var(--gradient);color:#fff;transform:translateY(-2px);box-shadow:var(--shadow);}
+
+    footer{
+      padding:50px 0 70px;color:var(--muted);border-top:1px solid var(--ring);
+      text-align:center;background:rgba(255,255,255,0.4);backdrop-filter:blur(8px);
+    }
+
+    .muted{color:var(--muted);}
+    .kbd{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      background:var(--card);border:1px solid var(--ring);padding:4px 8px;border-radius:6px;font-size:14px;
+    }
+
+    @media (min-width:768px){
+      .hero{grid-template-columns:1.25fr .75fr;gap:70px;}
+      .nav{flex-wrap:nowrap;}
+    }
+    @media (max-width:767px){
+      .container{padding:0 16px;}
+      .hero{text-align:center;}
+      .social{justify-content:center;}
+      .nav-links{justify-content:center;}
+      .control-group{justify-content:center;}
+    }
+
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+    .loading{opacity:0;transform:translateY(30px);} 
+    .loaded{opacity:1;transform:translateY(0);transition:all .6s ease;}
+
+    html[data-language="zh"] .en,
+    html[data-language="zh"] .ko{display:none!important;}
+    html[data-language="en"] .zh,
+    html[data-language="en"] .ko{display:none!important;}
+    html[data-language="ko"] .zh,
+    html[data-language="ko"] .en{display:none!important;}
+  </style>
 </head>
 <body>
-  <p>If you are not redirected, <a href="/my_introduction.html">click here</a>.</p>
+  <header>
+    <div class="container">
+      <nav class="nav">
+        <div>
+          <a href="#top" class="brand">yangshen2024.com</a>
+          <span class="brand-note zh">智能体 · 数据产品 · 创新实践</span>
+          <span class="brand-note en">Agents · Data Products · Applied Innovation</span>
+          <span class="brand-note ko">에이전트 · 데이터 제품 · 혁신 실험</span>
+        </div>
+        <div class="nav-links">
+          <a href="#about" class="nav-link zh" data-section="about">关于我</a>
+          <a href="#projects" class="nav-link zh" data-section="projects">项目</a>
+          <a href="#contact" class="nav-link zh" data-section="contact">联系</a>
+          <a href="projects.html" class="nav-link zh">更多项目</a>
+
+          <a href="#about" class="nav-link en" data-section="about">About</a>
+          <a href="#projects" class="nav-link en" data-section="projects">Projects</a>
+          <a href="#contact" class="nav-link en" data-section="contact">Contact</a>
+          <a href="projects.html" class="nav-link en">Portfolio</a>
+
+          <a href="#about" class="nav-link ko" data-section="about">소개</a>
+          <a href="#projects" class="nav-link ko" data-section="projects">프로젝트</a>
+          <a href="#contact" class="nav-link ko" data-section="contact">연락처</a>
+          <a href="projects.html" class="nav-link ko">더보기</a>
+        </div>
+        <div class="control-group">
+          <button id="mode" class="btn" aria-label="切换主题" title="切换主题">
+            <span id="theme-icon">🌞</span>
+            <span class="label zh">模式</span>
+            <span class="label en">Mode</span>
+            <span class="label ko">모드</span>
+          </button>
+          <button id="lang" class="btn" aria-label="切换语言" title="切换语言">
+            <span id="lang-icon">🇨🇳</span>
+            <span class="label zh">语言</span>
+            <span class="label en">Language</span>
+            <span class="label ko">언어</span>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section id="hero" class="hero loading">
+      <div>
+        <div class="hero-subtitle">
+          <span class="zh">你好，我是</span>
+          <span class="en">Hi, I'm</span>
+          <span class="ko">안녕하세요, 저는</span>
+        </div>
+        <h1>Yang Shen <span class="brand">（沈阳）</span></h1>
+        <p class="muted zh">
+          我是新加坡管理大学（SMU）MITB 项目 AI 专业的在读生，专注于 <strong>Agent 实际落地</strong> 与企业效率提升。
+          研究方向包括 <strong>NLP · LLM · AML</strong>，希望将一线技术转化为可复用的智能产品能力。
+        </p>
+        <p class="muted en">
+          I am a current student in the MITB AI track at Singapore Management University. My research centers on
+          <strong>deploying intelligent agents</strong> that drive efficiency inside organizations. I work across
+          <strong>NLP, LLMs, and Applied ML</strong> with a strong focus on shipping business-ready intelligence.
+        </p>
+        <p class="muted ko">
+          저는 싱가포르경영대학교(SMU) MITB AI 트랙에 재학 중이며, <strong>에이전트 기반 자동화</strong>와 기업 효율 향상에 집중하고 있습니다.
+          <strong>NLP · LLM · AML</strong> 분야의 연구를 실제 서비스와 제품에 연결하는 데 관심이 많습니다.
+        </p>
+        <div class="pill-list">
+          <span class="pill">Agent Ops</span>
+          <span class="pill">LLM Productization</span>
+          <span class="pill">Data Experience</span>
+        </div>
+        <div class="social">
+          <a href="https://github.com/yangshen2024" target="_blank" rel="noopener" title="GitHub">📚 GitHub</a>
+          <a href="mailto:shenyang0528@gmail.com" title="Email">✉️ Email</a>
+          <a href="https://yangshen2024.github.io" target="_blank" rel="noopener" title="Blog">📝 Blog</a>
+          <a href="https://www.linkedin.com/in/shenyang2024/" target="_blank" rel="noopener" title="LinkedIn">💼 LinkedIn</a>
+        </div>
+      </div>
+      <div style="justify-self:center">
+        <div class="avatar" title="Yang Shen - AI Researcher">🧠</div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section loading">
+      <h2>
+        <span class="zh">关于我</span>
+        <span class="en">About Me</span>
+        <span class="ko">소개</span>
+      </h2>
+      <div class="card">
+        <div class="zh">
+          <p>聚焦 <strong>数据产品、模型应用与智能体编排</strong>，擅长 Python、SQL、Tableau 以及轻量级自动化落地。</p>
+          <p>正在探索如何将 <strong>GitHub Pages + 自定义域名</strong> 扩展成知识库与在线履历（本页即为实践成果）。</p>
+          <p class="muted"><strong>技能</strong>：Python（pandas / scikit-learn / LangChain）· SQL · Git · Prompt Engineering · 数据可视化</p>
+        </div>
+        <div class="en">
+          <p>I design <strong>data products, ML applications, and agent orchestration pipelines</strong>. My toolkit spans Python,
+            SQL, Tableau, and rapid automation stacks.</p>
+          <p>Currently experimenting with <strong>GitHub Pages + custom domains</strong> to build living knowledge bases and
+            narrative resumes (this site is one example!).</p>
+          <p class="muted"><strong>Skills</strong>: Python (pandas / scikit-learn / LangChain) · SQL · Git · Prompt Engineering · Visualization</p>
+        </div>
+        <div class="ko">
+          <p><strong>데이터 제품, 모델 응용, 에이전트 오케스트레이션</strong>을 설계하며 Python·SQL·Tableau 기반 자동화에 능합니다.</p>
+          <p><strong>GitHub Pages + 사용자 도메인</strong>을 활용한 지식 저장소와 온라인 포트폴리오 실험을 진행 중입니다.</p>
+          <p class="muted"><strong>스킬</strong>: Python (pandas / scikit-learn / LangChain) · SQL · Git · 프롬프트 엔지니어링 · 데이터 시각화</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section id="projects" class="section loading">
+      <h2>
+        <span class="zh">代表项目</span>
+        <span class="en">Featured Projects</span>
+        <span class="ko">주요 프로젝트</span>
+      </h2>
+      <div class="section-cta">
+        <a href="projects.html" class="zh">查看更多项目 →</a>
+        <a href="projects.html" class="en">Explore all projects →</a>
+        <a href="projects.html" class="ko">전체 프로젝트 보기 →</a>
+      </div>
+      <div class="grid cols-3">
+        <article class="card">
+          <h3>🏦 Crossfunding Project</h3>
+          <p class="muted zh">企业融资与风险评估智能系统，结合机器学习提升 ROI 预测与预警能力，为投融资策略提供依据。</p>
+          <p class="muted en">Corporate financing & risk intelligence powered by ML models that improve ROI prediction accuracy and alerting.</p>
+          <p class="muted ko">머신러닝으로 ROI 예측·위험 알림을 고도화한 기업 자금 조달 분석 시스템입니다.</p>
+          <div style="margin:12px 0 16px">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Finance</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/crossfunding" target="_blank" rel="noopener">
+            <span class="zh">查看仓库 →</span>
+            <span class="en">View Repo →</span>
+            <span class="ko">코드 보기 →</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>🎫 Ticket MCP Project</h3>
+          <p class="muted zh">多渠道客服数据平台，打通消息、表单与运营数据，自动生成洞察并提升客服效率。</p>
+          <p class="muted en">A multi-channel customer intelligence layer that unifies tickets, forms, and ops data to surface instant insights.</p>
+          <p class="muted ko">여러 채널의 고객 데이터를 통합하여 실시간 인사이트와 운영 효율을 제공하는 플랫폼입니다.</p>
+          <div style="margin:12px 0 16px">
+            <span class="tag">Python</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Analytics</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/ticket-mcp" target="_blank" rel="noopener">
+            <span class="zh">查看仓库 →</span>
+            <span class="en">View Repo →</span>
+            <span class="ko">코드 보기 →</span>
+          </a>
+        </article>
+
+        <article class="card">
+          <h3>🏠 Property Price Forecasting</h3>
+          <p class="muted zh">结合税务/治安等外部信号的房价预测模型，提供选址策略与投资决策建议。</p>
+          <p class="muted en">A property valuation model fusing market, tax, and safety indicators to guide acquisitions & pricing.</p>
+          <p class="muted ko">시장·세금·치안 데이터를 결합한 부동산 가치 예측 모델로 투자 결정을 지원합니다.</p>
+          <div style="margin:12px 0 16px">
+            <span class="tag">ML</span>
+            <span class="tag">Real Estate</span>
+            <span class="tag">Forecast</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/property-price-forecasting" target="_blank" rel="noopener">
+            <span class="zh">查看仓库 →</span>
+            <span class="en">View Repo →</span>
+            <span class="ko">코드 보기 →</span>
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section loading">
+      <h2>
+        <span class="zh">联系我</span>
+        <span class="en">Contact</span>
+        <span class="ko">연락하기</span>
+      </h2>
+      <div class="card">
+        <div class="zh">
+          <p><strong>邮箱</strong>：<a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a></p>
+          <p class="muted">💡 快捷键：按 <span class="kbd">G</span> + <span class="kbd">H</span> 即刻前往 GitHub</p>
+          <p class="muted">期待与关注 AI / 数据智能的伙伴交流合作！</p>
+        </div>
+        <div class="en">
+          <p><strong>Email</strong>: <a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a></p>
+          <p class="muted">💡 Shortcut: press <span class="kbd">G</span> + <span class="kbd">H</span> to jump to GitHub.</p>
+          <p class="muted">Open for conversations around AI, data products, and creative agent workflows.</p>
+        </div>
+        <div class="ko">
+          <p><strong>이메일</strong>: <a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a></p>
+          <p class="muted">💡 단축키: <span class="kbd">G</span> + <span class="kbd">H</span> 를 누르면 GitHub 로 이동합니다.</p>
+          <p class="muted">AI·데이터 인텔리전스 관련 아이디어와 협업을 언제든 환영합니다.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Yang Shen · Built on GitHub Pages</p>
+      <p class="muted">
+        <span class="zh">「让想法落地」是我持续迭代的动力</span>
+        <span class="en">Building thoughtful systems, one agent at a time.</span>
+        <span class="ko">언제나 아이디어를 실험하고 구현합니다.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    const header = document.querySelector('header');
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const loadingElements = document.querySelectorAll('.loading');
+      loadingElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.remove('loading');
+          el.classList.add('loaded');
+        }, index * 180);
+      });
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', e => {
+        const targetId = link.getAttribute('href');
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          const offset = header.offsetHeight + 20;
+          const top = target.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        if (!id) return;
+        if (entry.isIntersecting) {
+          document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+          document.querySelectorAll(`a[href="#${id}"]`).forEach(link => link.classList.add('active'));
+        }
+      });
+    }, {
+      rootMargin: `-${header.offsetHeight + 40}px 0px -55% 0px`,
+      threshold: 0.2
+    });
+    document.querySelectorAll('main section[id]').forEach(section => observer.observe(section));
+
+    const themeButton = document.getElementById('mode');
+    const themeIcon = document.getElementById('theme-icon');
+    const langButton = document.getElementById('lang');
+    const langIcon = document.getElementById('lang-icon');
+
+    const themeOrder = ['light', 'dark', 'glass'];
+    const themeIcons = { light: '🌞', dark: '🌙', glass: '🪟' };
+
+    function applyTheme(theme) {
+      document.documentElement.dataset.theme = theme;
+      document.documentElement.classList.remove('dark', 'glass');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+      if (theme === 'glass') document.documentElement.classList.add('glass');
+      themeIcon.textContent = themeIcons[theme];
+      localStorage.setItem('theme', theme);
+    }
+
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let currentTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    if (!themeOrder.includes(currentTheme)) currentTheme = 'light';
+    applyTheme(currentTheme);
+
+    themeButton.addEventListener('click', () => {
+      const nextIndex = (themeOrder.indexOf(currentTheme) + 1) % themeOrder.length;
+      currentTheme = themeOrder[nextIndex];
+      applyTheme(currentTheme);
+    });
+
+    const languageOrder = ['zh', 'en', 'ko'];
+    const langIcons = { zh: '🇨🇳', en: '🇬🇧', ko: '🇰🇷' };
+    const langAttrs = { zh: 'zh-CN', en: 'en', ko: 'ko' };
+
+    function applyLanguage(lang) {
+      document.documentElement.dataset.language = lang;
+      document.documentElement.lang = langAttrs[lang];
+      langIcon.textContent = langIcons[lang];
+      localStorage.setItem('language', lang);
+    }
+
+    let currentLanguage = localStorage.getItem('language') || 'zh';
+    if (!languageOrder.includes(currentLanguage)) currentLanguage = 'zh';
+    applyLanguage(currentLanguage);
+
+    langButton.addEventListener('click', () => {
+      const nextIndex = (languageOrder.indexOf(currentLanguage) + 1) % languageOrder.length;
+      currentLanguage = languageOrder[nextIndex];
+      applyLanguage(currentLanguage);
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() === 'g') {
+        const handler = e2 => {
+          if (e2.key.toLowerCase() === 'h') {
+            window.open('https://github.com/yangshen2024', '_blank');
+          }
+          document.removeEventListener('keydown', handler);
+        };
+        document.addEventListener('keydown', handler, { once: true });
+      }
+    });
+
+    window.addEventListener('error', e => console.error('页面错误:', e.error));
+    document.addEventListener('visibilitychange', () => {
+      if (!document.hidden) {
+        document.getElementById('year').textContent = new Date().getFullYear();
+      }
+    });
+  </script>
 </body>
 </html>
