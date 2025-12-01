@@ -3,197 +3,583 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Yang Shen | Personal Site</title>
-  <meta name="description" content="Yang Shen 的个人主页与项目作品集" />
+  <title>Yang Shen | AI Researcher & Data Scientist</title>
+  <meta name="description" content="Yang Shen - SMU MITB AI专业学生，专注于Agent实际落地与企业业务效率提升。NLP、LLM、AML研究方向。" />
+  <meta name="keywords" content="Yang Shen, AI, Machine Learning, NLP, LLM, Data Science, SMU, Agent, 沈阳" />
+  <meta name="author" content="Yang Shen" />
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yangshen2024.github.io/" />
+  <meta property="og:title" content="Yang Shen | AI Researcher & Data Scientist" />
+  <meta property="og:description" content="SMU MITB AI专业学生，专注于Agent实际落地与企业业务效率提升" />
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content="https://yangshen2024.github.io/" />
+  <meta property="twitter:title" content="Yang Shen | AI Researcher & Data Scientist" />
+  <meta property="twitter:description" content="SMU MITB AI专业学生，专注于Agent实际落地与企业业务效率提升" />
+  
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+  <link rel="canonical" href="https://yangshen2024.github.io/" />
   <style>
     :root{
-      --bg: #ffffff; --fg:#0f172a; --muted:#475569; --brand:#2563eb; --card:#f8fafc; --ring:#e2e8f0;
-      --shadow: 0 10px 25px rgba(2,6,23,.06);
+      --bg: #ffffff; --fg:#0f172a; --muted:#64748b; --brand:#2563eb; --card:#f8fafc; --ring:#e2e8f0;
+      --shadow: 0 10px 25px rgba(2,6,23,.08); --shadow-lg: 0 20px 40px rgba(2,6,23,.12);
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     }
     .dark{
-      --bg:#0b1220; --fg:#e5e7eb; --muted:#9aa4b2; --brand:#60a5fa; --card:#0f172a; --ring:#1f2937;
-      --shadow: 0 10px 25px rgba(0,0,0,.35);
+      --bg:#0b1220; --fg:#e5e7eb; --muted:#94a3b8; --brand:#60a5fa; --card:#0f172a; --ring:#1f2937;
+      --shadow: 0 10px 25px rgba(0,0,0,.4); --shadow-lg: 0 20px 40px rgba(0,0,0,.6);
+      --gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
     }
-    html,body{height:100%}
+    
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    html,body { height:100%; margin:0; padding:0; }
+    
     body{
-      margin:0; font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Helvetica Neue, Arial, "Microsoft Yahei", sans-serif;
-      background:var(--bg); color:var(--fg); transition:background .2s,color .2s;
+      font:16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, PingFang SC, Hiragino Sans GB, Noto Sans CJK SC, Helvetica Neue, Arial, "Microsoft Yahei", sans-serif;
+      background:var(--bg); color:var(--fg); transition:all .3s ease;
+      overflow-x: hidden;
     }
-    .container{max-width:1040px; margin:0 auto; padding:24px}
+    
+    .container{max-width:1200px; margin:0 auto; padding:0 24px}
+    
+    /* Header & Navigation */
     header{
-      position:sticky; top:0; backdrop-filter: blur(8px);
-      background: color-mix(in srgb, var(--bg) 92%, transparent);
-      border-bottom:1px solid var(--ring); z-index:10;
+      position:sticky; top:0; backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+      background: color-mix(in srgb, var(--bg) 90%, transparent);
+      border-bottom:1px solid var(--ring); z-index:100;
+      transition: all .3s ease;
     }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:16px}
-    .nav a{color:var(--muted); text-decoration:none; padding:10px 12px; border-radius:10px}
-    .nav a.active,.nav a:hover{color:var(--fg); background:var(--card)}
-    .btn{display:inline-flex; align-items:center; gap:8px; padding:10px 14px; border:1px solid var(--ring);
-      border-radius:999px; text-decoration:none; color:var(--fg); background:var(--bg);}
-    .btn:hover{background:var(--card)}
-    .brand{color:var(--brand); font-weight:700}
-    .hero{display:grid; grid-template-columns:1fr; gap:28px; padding:56px 0 12px}
-    .hero h1{font-size:clamp(28px,4.2vw,44px); line-height:1.15; margin:0 0 12px}
-    .muted{color:var(--muted)}
+    
+    .nav{
+      display:flex; align-items:center; justify-content:space-between; 
+      padding: 16px 0; gap:16px; flex-wrap: wrap;
+    }
+    
+    .nav a{
+      color:var(--muted); text-decoration:none; padding:8px 16px; 
+      border-radius:12px; transition:all .2s ease; font-weight: 500;
+    }
+    .nav a.active,.nav a:hover{color:var(--fg); background:var(--card); transform: translateY(-1px);}
+    
+    .brand{
+      color:var(--brand); font-weight:700; font-size: 18px;
+      background: var(--gradient); -webkit-background-clip: text; 
+      background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    
+    .btn{
+      display:inline-flex; align-items:center; gap:8px; padding:10px 16px; 
+      border:1px solid var(--ring); border-radius:12px; text-decoration:none; 
+      color:var(--fg); background:var(--bg); transition:all .2s ease;
+      font-weight: 500; cursor: pointer;
+    }
+    .btn:hover{background:var(--card); transform: translateY(-2px); box-shadow: var(--shadow);}
+    
+    /* Hero Section */
+    .hero{
+      display:grid; grid-template-columns:1fr; gap:40px; 
+      padding:80px 0 60px; min-height: 70vh; align-items: center;
+    }
+    .hero h1{
+      font-size:clamp(32px,5vw,56px); line-height:1.1; margin:0 0 16px;
+      background: var(--gradient); -webkit-background-clip: text; 
+      background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    
+    .hero-subtitle {
+      font-size: 20px; color: var(--muted); margin-bottom: 24px;
+      font-weight: 300;
+    }
+    
     .avatar{
-      width:112px; height:112px; border-radius:24px; border:1px solid var(--ring); background:var(--card);
-      display:grid; place-items:center; font-size:56px; box-shadow:var(--shadow)
+      width:140px; height:140px; border-radius:28px; border:2px solid var(--ring); 
+      background:var(--gradient); display:grid; place-items:center; 
+      font-size:64px; box-shadow:var(--shadow-lg); transition: all .3s ease;
+      position: relative; overflow: hidden;
     }
-    .grid{display:grid; gap:18px}
-    @media (min-width: 820px){
-      .hero{grid-template-columns:1.2fr .8fr; align-items:center}
+    .avatar:hover { transform: scale(1.05) rotate(5deg); }
+    
+    /* Cards & Grid */
+    .grid{display:grid; gap:24px}
+    .card{
+      background:var(--card); border:1px solid var(--ring); border-radius:20px; 
+      padding:24px; box-shadow:var(--shadow); transition: all .3s ease;
+      position: relative; overflow: hidden;
+    }
+    .card:hover{transform: translateY(-4px); box-shadow: var(--shadow-lg);}
+    .card h3{margin:0 0 12px; font-size:20px; font-weight: 600;}
+    
+    .tag{
+      display:inline-block; font-size:12px; color:var(--muted); 
+      border:1px solid var(--ring); padding:6px 12px; border-radius:20px; 
+      margin:4px 8px 4px 0; background: var(--card); font-weight: 500;
+      transition: all .2s ease;
+    }
+    .tag:hover { background: var(--brand); color: white; }
+    
+    /* Sections */
+    .section{padding:60px 0}
+    .section h2 {
+      font-size: 32px; margin-bottom: 40px; text-align: center;
+      background: var(--gradient); -webkit-background-clip: text; 
+      background-clip: text; -webkit-text-fill-color: transparent;
+      font-weight: 700;
+    }
+    
+    /* Social Links */
+    .social{display:flex; gap:12px; flex-wrap:wrap; margin-top: 24px;}
+    .social a{
+      border:1px solid var(--ring); padding:12px 20px; border-radius:12px; 
+      text-decoration:none; color:var(--fg); transition: all .2s ease;
+      font-weight: 500;
+    }
+    .social a:hover {
+      background: var(--brand); color: white; transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+    
+    /* Footer */
+    footer{
+      padding:40px 0 60px; color:var(--muted); border-top:1px solid var(--ring); 
+      text-align:center; background: var(--card);
+    }
+    
+    /* Utilities */
+    .muted{color:var(--muted)}
+    .kbd{
+      font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; 
+      background:var(--card); border:1px solid var(--ring); padding:4px 8px; 
+      border-radius:6px; font-size: 14px;
+    }
+    
+    /* Responsive Design */
+    @media (min-width: 768px){
+      .hero{grid-template-columns:1.3fr .7fr; gap: 60px;}
       .grid.cols-3{grid-template-columns:repeat(3,1fr)}
       .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+      .nav { flex-wrap: nowrap; }
     }
-    .card{
-      background:var(--card); border:1px solid var(--ring); border-radius:18px; padding:18px; box-shadow:var(--shadow);
+    
+    @media (max-width: 767px){
+      .container { padding: 0 16px; }
+      .hero { padding: 60px 0 40px; text-align: center; }
+      .section { padding: 40px 0; }
+      .grid.cols-3 { grid-template-columns: 1fr; }
+      .nav { justify-content: center; gap: 8px; }
+      .social { justify-content: center; }
     }
-    .card h3{margin:0 0 8px; font-size:18px}
-    .tag{display:inline-block; font-size:12px; color:var(--muted); border:1px solid var(--ring); padding:4px 8px; border-radius:999px; margin-right:6px}
-    .section{padding:28px 0}
-    footer{padding:32px 0 40px; color:var(--muted); border-top:1px solid var(--ring); text-align:center}
-    .social{display:flex; gap:10px; flex-wrap:wrap}
-    .social a{border:1px solid var(--ring); padding:8px 12px; border-radius:12px; text-decoration:none; color:var(--fg)}
-    .kbd{font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background:var(--card); border:1px solid var(--ring); padding:2px 6px; border-radius:6px}
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .fade-in { animation: fadeInUp 0.6s ease-out; }
+    
+    /* Loading State */
+    .loading {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
+    }
+    
+    .loaded {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="container nav">
-      <div><a href="#top" class="brand">yangshen2024.com</a></div>
-      <nav style="display:flex; gap:6px; flex-wrap:wrap">
-        <a href="#about" class="en">About Me</a>
-        <a href="#projects" class="en">Projects</a>
-        <a href="#contact" class="en">Contact</a>
-        <a href="#about" class="zh">关于我</a>
-        <a href="#projects" class="zh">项目</a>
-        <a href="#contact" class="zh">联系</a>
-        <button id="mode" class="btn" aria-label="Toggle color mode">🌗 主题</button>
-        <button id="lang" class="btn" aria-label="Switch language">🇨🇳/🇬🇧</button>
+    <div class="container">
+      <nav class="nav">
+        <div><a href="#top" class="brand">yangshen2024.com</a></div>
+        <div style="display:flex; gap:8px; flex-wrap:wrap; align-items: center;">
+          <a href="#about" class="nav-link en" data-section="about">About Me</a>
+          <a href="#projects" class="nav-link en" data-section="projects">Projects</a>
+          <a href="#contact" class="nav-link en" data-section="contact">Contact</a>
+          <a href="#about" class="nav-link zh" data-section="about">关于我</a>
+          <a href="#projects" class="nav-link zh" data-section="projects">项目</a>
+          <a href="#contact" class="nav-link zh" data-section="contact">联系</a>
+          <button id="mode" class="btn" aria-label="Toggle color mode" title="切换主题">
+            <span id="theme-icon">🌗</span> <span class="zh">主题</span><span class="en">Theme</span>
+          </button>
+          <button id="lang" class="btn" aria-label="Switch language" title="切换语言">
+            <span id="lang-icon">🇨🇳</span>
+          </button>
+        </div>
       </nav>
     </div>
   </header>
 
   <main id="top" class="container">
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero loading">
       <div>
-        <div class="muted">Hi, I'm</div>
+        <div class="hero-subtitle muted">
+          <span class="zh">你好，我是</span>
+          <span class="en">Hi, I'm</span>
+        </div>
         <h1>Yang Shen <span class="brand">（沈阳）</span></h1>
         <p class="muted" id="desc">
-          我是新加坡管理大学（SMU）的 MITB 项目 AI 专业的在读学生，目前专注于研究 Agent 的实际落地，结合企业业务提升效率。我的研究方向涵盖 NLP、LLM、AML 等领域，致力于将前沿技术应用于实际业务。我乐于与志同道合的伙伴分享想法，欢迎与我交流，探讨更多有趣的课题。
+          我是新加坡管理大学（SMU）的 <strong>MITB 项目 AI 专业</strong>的在读学生，目前专注于研究 <strong>Agent 的实际落地</strong>，结合企业业务提升效率。我的研究方向涵盖 <strong>NLP、LLM、AML</strong> 等领域，致力于将前沿技术应用于实际业务场景。
         </p>
-        <p class="muted" id="desc-en">
-          I am a current student of the MITB program at Singapore Management University (SMU), specializing in AI. My research focuses on deploying agents to improve efficiency within business contexts. I am skilled in NLP, LLM, and AML, with a strong interest in applying cutting-edge technologies to real-world challenges. I’m open to exchanging ideas with like-minded individuals and exploring innovative solutions together.
+        <p class="muted" id="desc-en" style="display:none;">
+          I am a current student of the <strong>MITB program at Singapore Management University (SMU)</strong>, specializing in AI. My research focuses on <strong>deploying agents</strong> to improve efficiency within business contexts. I am skilled in <strong>NLP, LLM, and AML</strong>, with a strong interest in applying cutting-edge technologies to real-world challenges.
         </p>
-        <div class="social" style="margin-top:14px">
-          <a href="https://github.com/yangshen2024" target="_blank" rel="noopener">GitHub</a>
-          <a href="mailto:shenyang0528@gmail.com">Email</a>
-          <a href="https://yangshen2024.github.io" target="_blank" rel="noopener">Blog</a>
-          <a href="https://www.linkedin.com/in/shenyang2024/" target="_blank" rel="noopener">LinkedIn</a>
+        <div class="social">
+          <a href="https://github.com/yangshen2024" target="_blank" rel="noopener" title="GitHub Profile">
+            📚 GitHub
+          </a>
+          <a href="mailto:shenyang0528@gmail.com" title="Send Email">
+            ✉️ Email
+          </a>
+          <a href="https://yangshen2024.github.io" target="_blank" rel="noopener" title="Personal Blog">
+            📝 Blog
+          </a>
+          <a href="https://www.linkedin.com/in/shenyang2024/" target="_blank" rel="noopener" title="LinkedIn Profile">
+            💼 LinkedIn
+          </a>
         </div>
       </div>
       <div style="justify-self:center">
-        <div class="avatar" title="更换为你的头像">🧠</div>
+        <div class="avatar" title="Yang Shen - AI Researcher">🧠</div>
       </div>
     </section>
 
     <!-- ABOUT -->
-    <section id="about" class="section">
-      <h2>关于我 / About Me</h2>
+    <section id="about" class="section loading">
+      <h2>
+        <span class="zh">关于我</span>
+        <span class="en" style="display:none;">About Me</span>
+      </h2>
       <div class="card">
-        <p id="about-text">
-          目前在做 <b>数据产品与模型应用</b>，擅长 Python、SQL、Tableau。对 LLM 应用、检索增强和轻量级自动化很感兴趣。
-          最近在尝试把 GitHub Pages + 自定义域名用于个人知识库与简历展示（你现在看到的就是 😄）。
-        </p>
-        <p class="muted">技能栈 / Skills: Python（pandas / scikit-learn）· SQL · Git · Prompt Engineering · 可视化</p>
+        <div class="zh">
+          <p>
+            目前专注于 <strong>数据产品与模型应用</strong>，擅长 Python、SQL、Tableau 等技术栈。
+            对 <strong>LLM 应用、检索增强生成（RAG）</strong> 和轻量级自动化解决方案特别感兴趣。
+          </p>
+          <p>
+            最近在探索如何将 <strong>GitHub Pages + 自定义域名</strong> 用于构建个人知识库与作品展示平台
+            （你现在看到的就是成果之一 😊）。
+          </p>
+          <p class="muted">
+            <strong>技能栈</strong>: Python (pandas, scikit-learn, TensorFlow) · SQL · Git · 
+            Prompt Engineering · 数据可视化 · 机器学习 · 深度学习
+          </p>
+        </div>
+        <div class="en" style="display:none;">
+          <p>
+            Currently focusing on <strong>data products and model applications</strong>, 
+            proficient in Python, SQL, Tableau and related tech stacks. 
+            Particularly interested in <strong>LLM applications, Retrieval-Augmented Generation (RAG)</strong> 
+            and lightweight automation solutions.
+          </p>
+          <p>
+            Recently exploring how to leverage <strong>GitHub Pages + custom domains</strong> 
+            for building personal knowledge bases and portfolio platforms 
+            (what you're seeing now is one of the results 😊).
+          </p>
+          <p class="muted">
+            <strong>Tech Stack</strong>: Python (pandas, scikit-learn, TensorFlow) · SQL · Git · 
+            Prompt Engineering · Data Visualization · Machine Learning · Deep Learning
+          </p>
+        </div>
       </div>
     </section>
 
     <!-- PROJECTS -->
-    <section id="projects" class="section">
-      <h2>代表项目 / Projects</h2>
+    <section id="projects" class="section loading">
+      <h2>
+        <span class="zh">代表项目</span>
+        <span class="en" style="display:none;">Featured Projects</span>
+      </h2>
       <div class="grid cols-3">
         <article class="card">
-          <h3>Crossfunding Project</h3>
-          <p class="muted">企业融资与风险评估的优化项目，结合机器学习方法提升投资回报率与风险预警。</p>
-          <div style="margin:8px 0 10px">
-            <span class="tag">Python</span><span class="tag">ML</span>
+          <h3>🏦 Crossfunding Project</h3>
+          <div class="zh">
+            <p class="muted">
+              企业融资与风险评估的智能优化项目，结合机器学习算法提升投资回报率预测准确性与风险预警能力。
+              通过数据驱动的方法为金融决策提供科学依据。
+            </p>
           </div>
-          <a class="btn" href="https://github.com/yangshen2024/crossfunding" target="_blank" rel="noopener">查看仓库 →</a>
+          <div class="en" style="display:none;">
+            <p class="muted">
+              Intelligent optimization project for corporate financing and risk assessment, 
+              combining machine learning algorithms to improve ROI prediction accuracy and risk warning capabilities.
+            </p>
+          </div>
+          <div style="margin:12px 0 16px">
+            <span class="tag">Python</span>
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Finance</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/crossfunding" target="_blank" rel="noopener">
+            <span class="zh">查看仓库 →</span>
+            <span class="en" style="display:none;">View Repository →</span>
+          </a>
         </article>
+        
         <article class="card">
-          <h3>Ticket MCP Project</h3>
-          <p class="muted">多渠道数据分析平台，提升客服效率与运营分析能力。</p>
-          <div style="margin:8px 0 10px">
-            <span class="tag">Python</span><span class="tag">Data Science</span>
+          <h3>🎫 Ticket MCP Project</h3>
+          <div class="zh">
+            <p class="muted">
+              多渠道客服数据分析平台，通过智能化数据处理提升客服效率与运营分析能力。
+              整合多源数据，提供实时洞察和决策支持。
+            </p>
           </div>
-          <a class="btn" href="https://github.com/yangshen2024/ticket-mcp" target="_blank" rel="noopener">查看仓库 →</a>
+          <div class="en" style="display:none;">
+            <p class="muted">
+              Multi-channel customer service data analysis platform that improves service efficiency 
+              and operational analysis capabilities through intelligent data processing.
+            </p>
+          </div>
+          <div style="margin:12px 0 16px">
+            <span class="tag">Python</span>
+            <span class="tag">Data Science</span>
+            <span class="tag">Analytics</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/ticket-mcp" target="_blank" rel="noopener">
+            <span class="zh">查看仓库 →</span>
+            <span class="en" style="display:none;">View Repository →</span>
+          </a>
         </article>
+        
         <article class="card">
-          <h3>Property Price Forecasting</h3>
-          <p class="muted">基于房地产市场数据的价格预测，关联税务和犯罪率进行分析。</p>
-          <div style="margin:8px 0 10px">
-            <span class="tag">ML</span><span class="tag">Real Estate</span>
+          <h3>🏠 Property Price Forecasting</h3>
+          <div class="zh">
+            <p class="muted">
+              基于房地产市场多维数据的价格预测模型，综合考虑税务政策、犯罪率等外部因素，
+              为房产投资决策提供数据支撑。
+            </p>
           </div>
-          <a class="btn" href="https://github.com/yangshen2024/property-price-forecasting" target="_blank" rel="noopener">查看仓库 →</a>
+          <div class="en" style="display:none;">
+            <p class="muted">
+              Property price prediction model based on multi-dimensional real estate market data, 
+              considering external factors like tax policies and crime rates.
+            </p>
+          </div>
+          <div style="margin:12px 0 16px">
+            <span class="tag">Machine Learning</span>
+            <span class="tag">Real Estate</span>
+            <span class="tag">Prediction</span>
+          </div>
+          <a class="btn" href="https://github.com/yangshen2024/property-price-forecasting" target="_blank" rel="noopener">
+            <span class="zh">查看仓库 →</span>
+            <span class="en" style="display:none;">View Repository →</span>
+          </a>
         </article>
       </div>
     </section>
 
     <!-- CONTACT -->
-    <section id="contact" class="section">
-      <h2>联系我 / Contact Me</h2>
+    <section id="contact" class="section loading">
+      <h2>
+        <span class="zh">联系我</span>
+        <span class="en" style="display:none;">Contact Me</span>
+      </h2>
       <div class="card">
-        <p>邮箱：<a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a></p>
-        <p class="muted">小提示：按 <span class="kbd">G</span> 然后 <span class="kbd">H</span> 快速前往我的 GitHub 主页。</p>
+        <div class="zh">
+          <p>
+            <strong>邮箱</strong>：<a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a>
+          </p>
+          <p class="muted">
+            💡 小提示：按 <span class="kbd">G</span> 然后 <span class="kbd">H</span> 可快速前往我的 GitHub 主页
+          </p>
+          <p class="muted">
+            欢迎与我交流讨论 AI、机器学习、数据科学相关的话题，或者任何有趣的技术项目合作机会！
+          </p>
+        </div>
+        <div class="en" style="display:none;">
+          <p>
+            <strong>Email</strong>: <a href="mailto:shenyang0528@gmail.com">shenyang0528@gmail.com</a>
+          </p>
+          <p class="muted">
+            💡 Pro tip: Press <span class="kbd">G</span> then <span class="kbd">H</span> to quickly visit my GitHub profile
+          </p>
+          <p class="muted">
+            Feel free to reach out for discussions about AI, machine learning, data science, 
+            or any interesting tech collaboration opportunities!
+          </p>
+        </div>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">© <span id="y"></span> Yang Shen · Built with GitHub Pages</div>
+    <div class="container">
+      <p>© <span id="year"></span> Yang Shen · Built with ❤️ and GitHub Pages</p>
+      <p class="muted" style="margin-top: 8px; font-size: 14px;">
+        <span class="zh">用心打造，持续更新</span>
+        <span class="en" style="display:none;">Crafted with care, continuously updated</span>
+      </p>
+    </div>
   </footer>
 
   <script>
-    const links = document.querySelectorAll('header nav a[href^="#"]');
-    links.forEach(a=>{
-      a.addEventListener('click', e=>{
+    // 页面加载动画
+    document.addEventListener('DOMContentLoaded', function() {
+      // 逐步显示加载元素
+      const loadingElements = document.querySelectorAll('.loading');
+      loadingElements.forEach((el, index) => {
+        setTimeout(() => {
+          el.classList.remove('loading');
+          el.classList.add('loaded');
+        }, index * 200);
+      });
+      
+      // 设置当前年份
+      document.getElementById('year').textContent = new Date().getFullYear();
+    });
+
+    // 平滑滚动导航
+    const navLinks = document.querySelectorAll('a[href^="#"]');
+    navLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(a.getAttribute('href'))?.scrollIntoView({behavior:'smooth', block:'start'});
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        
+        if (targetElement) {
+          const headerHeight = document.querySelector('header').offsetHeight;
+          const targetPosition = targetElement.offsetTop - headerHeight - 20;
+          
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
 
-    const io = new IntersectionObserver(entries=>{
-      entries.forEach(e=>{
-        const id = e.target.getAttribute('id');
-        const l = document.querySelector(`a[href="#${id}"]`);
-        if(l) l.classList.toggle('active', e.isIntersecting);
-      });
-    }, {rootMargin:'-40% 0px -55% 0px', threshold:0});
-    document.querySelectorAll('main section[id]').forEach(s=>io.observe(s));
-
-    const btn = document.getElementById('mode');
-    const apply = v => document.documentElement.classList.toggle('dark', v === 'dark');
-    const pref = localStorage.getItem('mode') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light');
-    apply(pref);
-    btn.addEventListener('click', ()=>{
-      const v = document.documentElement.classList.contains('dark') ? 'light':'dark';
-      localStorage.setItem('mode', v); apply(v);
-    });
-
-    const langBtn = document.getElementById('lang');
-    const toggleLang = () => {
-      const isChinese = document.documentElement.lang === "zh-CN";
-      document.documentElement.lang = isChinese ? "en" : "zh-CN";
-      document.querySelectorAll(".zh").forEach(el => el.style.display = isChinese ? 'block' : 'none');
-      document.querySelectorAll(".en").forEach(el => el.style.display = isChinese ? 'none' : 'block');
-      langBtn.textContent = isChinese ? "🇬🇧" : "🇨🇳";
+    // 导航栏活跃状态
+    const observerOptions = {
+      rootMargin: `-${document.querySelector('header').offsetHeight + 50}px 0px -60% 0px`,
+      threshold: 0.1
     };
-    langBtn.addEventListener('click', toggleLang);
 
-    document.getElementById('y').textContent = new Date().getFullYear();
+    const observer = new IntersectionObserver(function(entries) {
+      entries.forEach(entry => {
+        const id = entry.target.getAttribute('id');
+        const navLink = document.querySelector(`a[href="#${id}"]`);
+        
+        if (navLink) {
+          if (entry.isIntersecting) {
+            // 移除所有活跃状态
+            document.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.remove('active');
+            });
+            // 添加当前活跃状态
+            document.querySelectorAll(`a[href="#${id}"]`).forEach(link => {
+              link.classList.add('active');
+            });
+          }
+        }
+      });
+    }, observerOptions);
+
+    // 观察所有section
+    document.querySelectorAll('main section[id]').forEach(section => {
+      observer.observe(section);
+    });
+
+    // 主题切换功能
+    const themeButton = document.getElementById('mode');
+    const themeIcon = document.getElementById('theme-icon');
+    
+    function applyTheme(theme) {
+      document.documentElement.classList.toggle('dark', theme === 'dark');
+      themeIcon.textContent = theme === 'dark' ? '☀️' : '🌗';
+      localStorage.setItem('theme', theme);
+    }
+
+    // 初始化主题
+    const savedTheme = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const initialTheme = savedTheme || (prefersDark ? 'dark' : 'light');
+    applyTheme(initialTheme);
+
+    themeButton.addEventListener('click', function() {
+      const currentTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      applyTheme(newTheme);
+    });
+
+    // 语言切换功能
+    const langButton = document.getElementById('lang');
+    const langIcon = document.getElementById('lang-icon');
+    
+    function toggleLanguage() {
+      const isCurrentlyChinese = document.documentElement.lang === 'zh-CN';
+      const newLang = isCurrentlyChinese ? 'en' : 'zh-CN';
+      
+      document.documentElement.lang = newLang;
+      
+      // 切换显示/隐藏元素
+      document.querySelectorAll('.zh').forEach(el => {
+        el.style.display = isCurrentlyChinese ? 'none' : '';
+      });
+      document.querySelectorAll('.en').forEach(el => {
+        el.style.display = isCurrentlyChinese ? '' : 'none';
+      });
+      
+      // 更新按钮图标
+      langIcon.textContent = isCurrentlyChinese ? '🇨🇳' : '🇬🇧';
+      
+      // 保存语言偏好
+      localStorage.setItem('language', newLang);
+    }
+
+    // 初始化语言
+    const savedLang = localStorage.getItem('language');
+    if (savedLang && savedLang !== 'zh-CN') {
+      toggleLanguage();
+    }
+
+    langButton.addEventListener('click', toggleLanguage);
+
+    // 键盘快捷键
+    document.addEventListener('keydown', function(e) {
+      // G + H 快捷键跳转到 GitHub
+      if (e.key.toLowerCase() === 'g') {
+        document.addEventListener('keydown', function handler(e2) {
+          if (e2.key.toLowerCase() === 'h') {
+            window.open('https://github.com/yangshen2024', '_blank');
+            document.removeEventListener('keydown', handler);
+          }
+        }, { once: true });
+      }
+    });
+
+    // 性能优化：防抖滚动处理
+    let scrollTimeout;
+    window.addEventListener('scroll', function() {
+      if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+      }
+      
+      scrollTimeout = setTimeout(function() {
+        // 可以在这里添加滚动相关的处理
+      }, 10);
+    });
+
+    // 错误处理
+    window.addEventListener('error', function(e) {
+      console.error('页面错误:', e.error);
+    });
+
+    // 页面可见性API - 当页面重新可见时刷新年份
+    document.addEventListener('visibilitychange', function() {
+      if (!document.hidden) {
+        document.getElementById('year').textContent = new Date().getFullYear();
+      }
+    });
   </script>
 </body>
 </html>
